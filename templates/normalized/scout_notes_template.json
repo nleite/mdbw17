@@ -1,0 +1,6 @@
+{
+  "match_id": {"$number": {"min": 0, "max": 1200000000}},
+  "player_id": {"$number": {"min": 0, "max": 100000}},
+  "comment": {"$paragraph":{"sentences": {"$integer": {"min": 1, "max":5}}}},
+  "at_min": {"$number": {"max": 90, "min": 1}}
+}

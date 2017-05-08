@@ -1,0 +1,9 @@
+{
+  "_id": "$inc",
+  "person_id": "$inc",
+  "field_position": {"$choose": {
+    "from": ["goalkeeper", "forward", "midfielder", "defender"],
+    "weights": [1, 2, 4, 4] }},
+  "international": "$bool",
+  "team_id": {"$number": {"max": 4000, "min": 0}}
+}

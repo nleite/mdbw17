@@ -1,0 +1,11 @@
+{
+  "_id": "$inc",
+  "home_team": {"$number": {"max": 4000, "min": 0}},
+  "away_team": {"$number": {"max": 4000, "min": 0}},
+  "ref_id": {"$number": {"max": 100000, "min": 0} },
+  "score": {
+    "home": {"$integer": {"min": 0, "max": 5}},
+    "away": {"$integer": {"min": 0, "max": 5}}
+  },
+  "date": "$now"
+}

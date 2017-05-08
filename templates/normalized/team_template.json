@@ -1,4 +1,5 @@
 {
+  "_id": "$inc",
   "name": {"$sentence": {"words": 3}},
   "city": "$city",
   "country": "$country",
@@ -13,6 +14,8 @@
   },
   "founded": {"$year": { "min": 1893, "max": 2016 }},
   "president": {
-    "name": "$name",
-  }
+    "name": "$name"
+  },
+  "league": {"$choose": {"from": ["premier", "laliga", "serieA", "bundesliga",
+    "ligue1", "primeiraliga", "eredivise"]}}
 }

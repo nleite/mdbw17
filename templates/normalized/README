@@ -1,0 +1,8 @@
+Dataset numbers:
+n Teams: 4000
+n Matches: 20 x team  = 80K
+n Match stats = 80K * 15 => 1.2M
+n Players: 100K
+n Person: 105K
+n Scout reports: 3 * Matches => 240K
+n photos: 105K
