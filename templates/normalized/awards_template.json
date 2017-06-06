@@ -1,0 +1,9 @@
+{
+  "_id": "$inc",
+  "year": "$year",
+  "organization": {"$choose":
+    {"from": ["fifa", "UEFA", "CONCACAF", "AFAC", "CONMEBOL", "AFC", "OFC"]}},
+  "name": {"$choose":
+    {"from": ["Best Player", "Best Goal scorrer", "Best Goalkeeper"]}},
+  "player_id": {"$number": {"max": 100000, "min":0}}
+}

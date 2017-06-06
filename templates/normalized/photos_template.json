@@ -1,4 +1,4 @@
 {
   "_id": "$inc",
-  "photo": {"$binary": {"length": 1000}}
+  "photo": {"$binary": {"length": 1000, "$type": "01"}}
 }
