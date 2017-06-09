@@ -1,0 +1,10 @@
+{
+  "_id": "$inc",
+  "name": "$name",
+  "bday": "$date",
+  "ssn": "$ssn",
+  "role": {"$choose": {
+    "from": ["player", "coach", "president"],
+    "weights": [30, 1, 1]}},
+  "photo": {"$binary": {"length": 1000}}
+}

@@ -1,0 +1,6 @@
+{
+  "name": "$word",
+  "capacity": {"$number": {"max": 100000, "min":0}},
+  "address": "$address",
+  "area": {"$polygon": {"corners": 4} }
+}

@@ -1,0 +1,79 @@
+{
+  "_id": "$inc",
+  "name": "$name",
+  "role": {"$choose": {
+    "from": ["player", "coach", "president"],
+    "weights": [30, 1, 1]}},
+  "personal_data": {
+    "bday": "$date",
+    "ssn": "$ssn",
+    "photo": {"$binary": {"length": 1000}}
+  },
+  "field_position": {"$choose": {
+    "from": ["goalkeeper", "forward", "midfielder", "defender"],
+    "weights": [1, 2, 4, 4] }},
+  "international": "$bool",
+  "current_club": {
+    "name": {"$sentence": {"words": 3}},
+    "city": "$city",
+    "country": "$country",
+    "supporters": {"$number": {"min": 100, "max": 600000000}},
+    "team_logo": {"$binary": {"length": 100}},
+    "shield": {"$avatar": {"protocol": "http"}},
+    "field": {
+      "name": "$word",
+      "capacity": {"$number": {"max": 100000, "min":0}},
+      "address": "$address",
+      "area": {"$polygon": {"corners": 4} }
+    },
+    "founded": {"$year": { "min": 1893, "max": 2016 }},
+    "coach": {
+      "name": "$name",
+      "bday": "$date",
+      "ssn": "$ssn",
+      "photo": {"$binary": {"length": 1000}}
+    },
+    "president": {
+      "name": "$name",
+      "personal_data": {
+        "bday": "$date",
+        "ssn": "$ssn",
+        "photo": {"$binary": {"length": 1000}}
+      }
+    },
+    "league": {"$choose": {"from": ["premier", "laliga", "serieA", "bundesliga",
+      "ligue1", "primeiraliga", "eredivise"]}}
+  },
+  "past_teams":{
+    "$array": {
+      "of":{"$sentence": {"words": 3}},
+      "number": {"$integer":{"min": 0, "max": 11}}
+    }
+  },
+  "matches": {"$array":{
+      "of": {
+          "home_team": {"$number": {"max": 4000, "min": 0}},
+          "away_team": {"$number": {"max": 4000, "min": 0}},
+          "score": {
+            "home": {"$integer": {"min": 0, "max": 5}},
+            "away": {"$integer": {"min": 0, "max": 5}}
+          },
+          "date": "$now",
+          "player_stats": {
+            "cards": {
+              "red": {"$choose": {"from": [0, 1], "weights": [30, 1]}},
+              "yellow": {"$choose": {"from": [0, 1, 2], "weights": [20, 1, 2]}}
+            },
+            "passing": {"$floating": {"fixed": 3, "max": 1, "min": 0}},
+            "shooting": {"$floating": {"fixed": 1, "max": 1, "min": 0}},
+            "goals": {"$choose":{
+              "from": ["0", "1", 2, "3", 4, "5", "6"],
+              "weights": [10, 5, 2, 2, 1, 1, 1]
+              }},
+            "tackles": {"$number": {"max": 5, "min":0}}
+          }
+        },
+      "number": 10
+    }
+  }
+}
